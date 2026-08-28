@@ -12,7 +12,9 @@ fi
 
 # WS_PATH 伪装为真实文件下载路径，降低路径枚举探测风险
 # 部署时通过环境变量覆盖，示例：-e WS_PATH=/db/CLIENT_LTSC_EVAL_x64FRE_zh-cn.iso
-export WS_PATH="${WS_PATH:-/db/CLIENT_LTSC_EVAL_x64FRE_zh-cn.iso}"
+export WS_PATH="${WS_PATH:-/ws}"
+
+# 排障模式：临时开启 debug 日志，排查完成后改回 error
 export LOG_LEVEL="${LOG_LEVEL:-error}"
 
 # 尝试调高最大文件描述符数，应对连接数增多。沙箱环境可能不允许调整，
