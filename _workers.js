@@ -84,8 +84,8 @@ export default {
 };
 
 // ============================================================
-// 伪装页面模板
-// 风格统一为简约项目文档站，无凭据收集表单
+// 伪装页面模板 — 软件下载站主题
+// 站名：OpenSoft Hub，与代理/容器/基础设施厂商无关
 // ============================================================
 
 const PAGES = {
@@ -94,7 +94,7 @@ const PAGES = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps CI/CD Pipeline Documentation</title>
+    <title>OpenSoft Hub — Free & Open Source Software Downloads</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -102,7 +102,7 @@ const PAGES = {
         .logo { color: #fff; font-weight: 700; font-size: 1.1rem; }
         .nav-links a { color: #c9d1d9; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
         .nav-links a:hover { color: #58a6ff; }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 24px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 24px; }
         h1 { font-size: 1.8rem; margin-bottom: 12px; }
         .subtitle { color: #6a737d; font-size: 1.05rem; margin-bottom: 32px; }
         .card { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 24px; margin-bottom: 20px; }
@@ -111,12 +111,16 @@ const PAGES = {
         .card a { color: #0366d6; text-decoration: none; }
         .card a:hover { text-decoration: underline; }
         .badge { display: inline-block; background: #e1e4e8; color: #444; font-size: 0.75rem; padding: 2px 8px; border-radius: 12px; margin-right: 6px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; margin-top: 20px; }
+        .feature-item { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 16px; }
+        .feature-item h3 { font-size: 1rem; margin-bottom: 6px; }
+        .feature-item p { font-size: 0.85rem; color: #666; }
         footer { text-align: center; padding: 32px; color: #6a737d; font-size: 0.85rem; }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -126,24 +130,46 @@ const PAGES = {
         </div>
     </nav>
     <div class="container">
-        <h1>DevOps CI/CD Pipeline</h1>
-        <p class="subtitle">Containerized deployment pipeline documentation and resources.</p>
+        <h1>OpenSoft Hub</h1>
+        <p class="subtitle">Your trusted source for free and open source software downloads.</p>
         <div class="card">
-            <h2>Overview</h2>
-            <p>This site provides documentation for the internal CI/CD pipeline used by the infrastructure team. It covers container deployment, configuration management, and monitoring.</p>
-            <span class="badge">v2.4.1</span>
-            <span class="badge">Updated: Aug 2026</span>
+            <h2>Welcome</h2>
+            <p>We provide direct download links to popular open source applications. All software is hosted by their respective official sources, ensuring authenticity and security.</p>
+            <span class="badge">100% Free</span>
+            <span class="badge">No Ads</span>
+            <span class="badge">Updated Daily</span>
         </div>
         <div class="card">
-            <h2>Quick Links</h2>
-            <p><a href="/docs">Read the documentation</a> · <a href="/downloads">Download resources</a> · <a href="/about">About this project</a></p>
+            <h2>Popular Downloads</h2>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <h3>7-Zip</h3>
+                    <p>File archiver with high compression ratio.</p>
+                    <a href="/downloads">Get it →</a>
+                </div>
+                <div class="feature-item">
+                    <h3>VLC Media Player</h3>
+                    <p>Plays everything, runs everywhere.</p>
+                    <a href="/downloads">Get it →</a>
+                </div>
+                <div class="feature-item">
+                    <h3>Notepad++</h3>
+                    <p>Free source code editor and Notepad replacement.</p>
+                    <a href="/downloads">Get it →</a>
+                </div>
+                <div class="feature-item">
+                    <h3>LibreOffice</h3>
+                    <p>Complete office suite, compatible with Microsoft Office.</p>
+                    <a href="/downloads">Get it →</a>
+                </div>
+            </div>
         </div>
         <div class="card">
-            <h2>Status</h2>
-            <p>All systems operational. Last deployment: Aug 27, 2026 14:32 UTC.</p>
+            <h2>Why OpenSoft Hub?</h2>
+            <p>We only link to official releases from developers, no bundled adware or toolbars. Browse the <a href="/downloads">downloads page</a> to find what you need.</p>
         </div>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -152,7 +178,7 @@ const PAGES = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About — Pipeline Docs</title>
+    <title>About — OpenSoft Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -170,7 +196,7 @@ const PAGES = {
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -180,13 +206,13 @@ const PAGES = {
         </div>
     </nav>
     <div class="container">
-        <h1>About This Project</h1>
-        <p>This documentation site covers the CI/CD pipeline used internally by the infrastructure team for containerized deployments on Scaleway Serverless Containers.</p>
-        <p>The pipeline includes automated image building via GitHub Actions, container deployment to Scaleway, and reverse proxy configuration through Cloudflare.</p>
-        <p>For access to internal resources, please contact the infrastructure team. See <a href="/contact">Contact</a> for details.</p>
+        <h1>About OpenSoft Hub</h1>
+        <p>OpenSoft Hub is a simple, no-nonsense directory of free and open source software for Windows, macOS, and Linux. We believe in transparency: every download link points directly to the official project website or trusted mirror.</p>
+        <p>We do not host any files ourselves, which means you always get the latest version straight from the developers. This reduces the risk of tampered installers and ensures you're not downloading outdated software.</p>
+        <p>Our mission is to make quality open source software easy to find without the clutter of ads or fake "Download" buttons.</p>
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -195,7 +221,7 @@ const PAGES = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Downloads — Pipeline Docs</title>
+    <title>Downloads — OpenSoft Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -203,21 +229,19 @@ const PAGES = {
         .logo { color: #fff; font-weight: 700; font-size: 1.1rem; }
         .nav-links a { color: #c9d1d9; text-decoration: none; margin-left: 20px; font-size: 0.9rem; }
         .nav-links a:hover { color: #58a6ff; }
-        .container { max-width: 800px; margin: 40px auto; padding: 0 24px; }
+        .container { max-width: 900px; margin: 40px auto; padding: 0 24px; }
         h1 { font-size: 1.8rem; margin-bottom: 24px; }
-        .file-list { list-style: none; }
-        .file-list li { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
-        .file-name { font-weight: 600; font-size: 0.95rem; }
-        .file-meta { color: #6a737d; font-size: 0.85rem; }
-        .restricted { color: #cb1b1b; font-size: 0.85rem; font-weight: 500; }
-        a { color: #0366d6; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        .download-item { background: #fff; border: 1px solid #e1e4e8; border-radius: 8px; padding: 16px 20px; margin-bottom: 12px; display: flex; justify-content: space-between; align-items: center; }
+        .download-info h3 { font-size: 1rem; margin-bottom: 4px; }
+        .download-info p { color: #6a737d; font-size: 0.85rem; }
+        .download-btn { background: #0366d6; color: #fff; text-decoration: none; padding: 8px 16px; border-radius: 6px; font-size: 0.9rem; }
+        .download-btn:hover { background: #0256b3; }
         footer { text-align: center; padding: 32px; color: #6a737d; font-size: 0.85rem; }
     </style>
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -227,34 +251,60 @@ const PAGES = {
         </div>
     </nav>
     <div class="container">
-        <h1>Downloads</h1>
-        <ul class="file-list">
-            <li>
-                <div>
-                    <div class="file-name">pipeline-config-v2.4.tar.gz</div>
-                    <div class="file-meta">14.2 MB &middot; Aug 27, 2026</div>
-                </div>
-                <span class="restricted">Access restricted</span>
-            </li>
-            <li>
-                <div>
-                    <div class="file-name">container-deploy-guide.pdf</div>
-                    <div class="file-meta">3.8 MB &middot; Aug 25, 2026</div>
-                </div>
-                <span class="restricted">Access restricted</span>
-            </li>
-            <li>
-                <div>
-                    <div class="file-name">monitoring-dashboards.json</div>
-                    <div class="file-meta">512 KB &middot; Aug 24, 2026</div>
-                </div>
-                <span class="restricted">Access restricted</span>
-            </li>
-        </ul>
-        <p style="margin-top:20px;font-size:0.9rem;color:#6a737d;">Downloads require infrastructure team authorization. Contact the team for access.</p>
+        <h1>Available Downloads</h1>
+        <p style="margin-bottom:20px;color:#6a737d;">All links lead to official sources. Click to download.</p>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>7-Zip 24.08</h3>
+                <p>Windows / 1.5 MB / Aug 20, 2026</p>
+            </div>
+            <a class="download-btn" href="https://www.7-zip.org/download.html" target="_blank">Download</a>
+        </div>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>VLC Media Player 3.0.21</h3>
+                <p>Windows / 40 MB / Aug 18, 2026</p>
+            </div>
+            <a class="download-btn" href="https://www.videolan.org/vlc/download-windows.html" target="_blank">Download</a>
+        </div>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>Notepad++ 8.6.9</h3>
+                <p>Windows / 4.2 MB / Aug 15, 2026</p>
+            </div>
+            <a class="download-btn" href="https://notepad-plus-plus.org/downloads/" target="_blank">Download</a>
+        </div>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>LibreOffice 24.8.0</h3>
+                <p>Windows / 350 MB / Aug 10, 2026</p>
+            </div>
+            <a class="download-btn" href="https://www.libreoffice.org/download/download/" target="_blank">Download</a>
+        </div>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>GIMP 2.10.38</h3>
+                <p>Windows / 270 MB / Aug 5, 2026</p>
+            </div>
+            <a class="download-btn" href="https://www.gimp.org/downloads/" target="_blank">Download</a>
+        </div>
+        
+        <div class="download-item">
+            <div class="download-info">
+                <h3>Audacity 3.6.4</h3>
+                <p>Windows / 30 MB / Aug 1, 2026</p>
+            </div>
+            <a class="download-btn" href="https://www.audacityteam.org/download/" target="_blank">Download</a>
+        </div>
+        
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -263,7 +313,7 @@ const PAGES = {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation — Pipeline Docs</title>
+    <title>Documentation — OpenSoft Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -284,7 +334,7 @@ const PAGES = {
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -295,22 +345,17 @@ const PAGES = {
     </nav>
     <div class="container">
         <h1>Documentation</h1>
-        <h2>Container Deployment</h2>
-        <p>Containers are deployed to Scaleway Serverless Containers with the following configuration:</p>
-        <pre>vCPU: 100m
-Memory: 128MB
-Port: 8080 (HTTP)
-Timeout: 3600s</pre>
-        <h2>Environment Variables</h2>
-        <p>The following variables must be set during deployment:</p>
-        <pre>UUID: VLESS user identifier
-WS_PATH: WebSocket endpoint path
-LOG_LEVEL: Logging verbosity (default: error)</pre>
-        <h2>Reverse Proxy</h2>
-        <p>Cloudflare Worker handles reverse proxying and TLS termination. The Worker validates WebSocket upgrade requests and forwards them to the container.</p>
+        <h2>How to Use This Site</h2>
+        <p>Browse the <a href="/downloads">Downloads</a> page to find the software you need. Each entry includes the version, file size, and date of the latest release. Click the "Download" button to be taken to the official download page.</p>
+        <h2>Verifying Downloads</h2>
+        <p>To ensure the integrity of your downloaded files, always check the checksum provided by the software vendor. We recommend using SHA-256.</p>
+        <h2>Frequently Asked Questions</h2>
+        <p><strong>Do you host the files yourself?</strong><br>No, we link to the official project websites or trusted mirrors.</p>
+        <p><strong>Is this site really free?</strong><br>Yes, all software listed is open source and free to use.</p>
+        <p><strong>Can I request a software?</strong><br>Use the <a href="/contact">Contact</a> page to send suggestions.</p>
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -319,7 +364,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact — Pipeline Docs</title>
+    <title>Contact — OpenSoft Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -337,7 +382,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -347,12 +392,13 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
         </div>
     </nav>
     <div class="container">
-        <h1>Contact</h1>
-        <p>For questions about the CI/CD pipeline, container deployment, or access requests, please reach out to the infrastructure team through internal channels.</p>
-        <p>Response time: 1-2 business days.</p>
+        <h1>Contact Us</h1>
+        <p>Have a suggestion for software we should list? Found a broken link? We'd love to hear from you.</p>
+        <p>Email: <a href="mailto:hello@opensofthub.example">hello@opensofthub.example</a></p>
+        <p>Response time: usually within 48 hours.</p>
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -361,7 +407,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Access Restricted — Pipeline Docs</title>
+    <title>Direct Download — OpenSoft Hub</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f8f9fa; color: #24292e; line-height: 1.6; }
@@ -379,7 +425,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -389,12 +435,12 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
         </div>
     </nav>
     <div class="container">
-        <h1>Access Restricted</h1>
-        <p>This resource requires authorization from the infrastructure team.</p>
-        <p>Please contact the team through internal channels to request access.</p>
+        <h1>Direct Download Link</h1>
+        <p>This URL is not a direct file. Please visit the <a href="/downloads">Downloads</a> page to access the software catalog.</p>
+        <p>If you were expecting a file, make sure you are using the correct link from the official download page.</p>
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`,
 
@@ -421,7 +467,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
 </head>
 <body>
     <nav>
-        <div class="logo">Pipeline Docs</div>
+        <div class="logo">OpenSoft Hub</div>
         <div class="nav-links">
             <a href="/">Home</a>
             <a href="/about">About</a>
@@ -435,7 +481,7 @@ LOG_LEVEL: Logging verbosity (default: error)</pre>
         <p>The page you are looking for does not exist or has been moved.</p>
         <p><a href="/">&larr; Back to home</a></p>
     </div>
-    <footer>&copy; 2026 Infrastructure Team. Internal use only.</footer>
+    <footer>&copy; 2026 OpenSoft Hub. All trademarks belong to their respective owners.</footer>
 </body>
 </html>`
 };
