@@ -44,29 +44,9 @@ export default {
                 redirect: request.redirect
             });
 
-            let response = await fetch(new_request);
-
-            // 清理上游响应头，避免泄露 sing-box 指纹
-            let cleanHeaders = new Headers();
-            let ct = response.headers.get('Content-Type');
-            if (ct) cleanHeaders.set('Content-Type', ct);
-            // 保留 WebSocket 相关头
-            let upgrade = response.headers.get('Upgrade');
-            if (upgrade) cleanHeaders.set('Upgrade', upgrade);
-            let conn = response.headers.get('Connection');
-            if (conn) cleanHeaders.set('Connection', conn);
-            let wsAccept = response.headers.get('Sec-WebSocket-Accept');
-            if (wsAccept) cleanHeaders.set('Sec-WebSocket-Accept', wsAccept);
-            let wsProtocol = response.headers.get('Sec-WebSocket-Protocol');
-            if (wsProtocol) cleanHeaders.set('Sec-WebSocket-Protocol', wsProtocol);
-            let wsVersion = response.headers.get('Sec-WebSocket-Version');
-            if (wsVersion) cleanHeaders.set('Sec-WebSocket-Version', wsVersion);
-
-            return new Response(response.body, {
-                status: response.status,
-                statusText: response.statusText,
-                headers: cleanHeaders
-            });
+            // 直接返回 fetch 响应，不包装
+            // WebSocket 升级响应必须原样返回，不能用 new Response() 包装，否则握手失败
+            return fetch(new_request);
         }
 
         // ============================================================
