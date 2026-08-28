@@ -7,7 +7,7 @@
     "servers": [
       {
         "tag": "resolver",
-        "address": "https://1.1.1.1/dns-query",
+        "address": "1.1.1.1",
         "strategy": "ipv4_only"
       }
     ],
@@ -34,7 +34,7 @@
       },
       "multiplex": {
         "enabled": true,
-        "padding": true
+        "padding": false
       }
     }
   ],
