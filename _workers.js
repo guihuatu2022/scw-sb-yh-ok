@@ -30,14 +30,18 @@ export default {
             }
 
             // 合法 WebSocket 升级 → 反代到 Scaleway 容器
-            url.protocol = 'https:';
-            url.hostname = env.ORIGIN_DOMAIN;
+            const upstreamUrl = new URL(url);
+            upstreamUrl.protocol = 'https:';
+            upstreamUrl.hostname = env.ORIGIN_DOMAIN;
 
+            // 复制请求头，并强制设置 WebSocket 升级所需头
             let newHeaders = new Headers(request.headers);
-            // 覆写 Host，使容器平台网关接受请求
             newHeaders.set('Host', env.ORIGIN_DOMAIN);
+            // 显式设置这两个头，防止被 Cloudflare 边缘节点剥离
+            newHeaders.set('Connection', 'Upgrade');
+            newHeaders.set('Upgrade', 'websocket');
 
-            let new_request = new Request(url, {
+            const newRequest = new Request(upstreamUrl, {
                 method: request.method,
                 headers: newHeaders,
                 body: request.body,
@@ -46,7 +50,7 @@ export default {
 
             // 直接返回 fetch 响应，不包装
             // WebSocket 升级响应必须原样返回，不能用 new Response() 包装，否则握手失败
-            return fetch(new_request);
+            return fetch(newRequest);
         }
 
         // ============================================================
