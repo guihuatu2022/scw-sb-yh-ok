@@ -80,8 +80,6 @@
         {
           "type": "vless",
           "tag": "vless-ws",
-          "listen": "127.0.0.1",
-          "listen_port": 0,
           "sniff": false,
           "users": [
             {
