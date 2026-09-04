@@ -1,111 +1,22 @@
 {
-  "log": {
-    "level": "@LOG_LEVEL@",
-    "timestamp": false
-  },
-  "dns": {
-    "servers": [
-      {
-        "tag": "resolver",
-        "address": "1.1.1.1",
-        "strategy": "ipv4_only"
-      }
-    ],
-    "strategy": "ipv4_only"
-  },
   "inbounds": [
     {
-      "type": "mixed",
-      "tag": "main-in",
+      "type": "vless",
+      "tag": "vless-ws-in",
       "listen": "0.0.0.0",
-      "listen_port": @PORT@,
+      "listen_port": 8080,
       "sniff": false,
-      "handlers": [
-        {
-          "comment": "Health check: GET / or GET /health (non-WebSocket)",
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "type": "http_method", "method": "GET" },
-            {
-              "type": "logical",
-              "mode": "or",
-              "rules": [
-                { "type": "http_path", "path": "/" },
-                { "type": "http_path", "path": "/health" }
-              ]
-            },
-            {
-              "type": "http_header",
-              "header": "Upgrade",
-              "invert": true,
-              "regexp": "(?i)websocket"
-            }
-          ],
-          "server": "health-http"
-        },
-        {
-          "comment": "VLESS+WS traffic",
-          "type": "logical",
-          "mode": "and",
-          "rules": [
-            { "type": "http_path", "path": "@WS_PATH@" }
-          ],
-          "server": "vless-ws"
-        }
+      "users": [
+        { "uuid": "@UUID@", "flow": "" }
       ],
-      "servers": [
-        {
-          "type": "http",
-          "tag": "health-http",
-          "handlers": [
-            {
-              "type": "logical",
-              "mode": "and",
-              "rules": [
-                { "type": "http_method", "method": "GET" },
-                {
-                  "type": "logical",
-                  "mode": "or",
-                  "rules": [
-                    { "type": "http_path", "path": "/" },
-                    { "type": "http_path", "path": "/health" }
-                  ]
-                }
-              ],
-              "server": "direct"
-            }
-          ]
-        },
-        {
-          "type": "vless",
-          "tag": "vless-ws",
-          "sniff": false,
-          "users": [
-            {
-              "uuid": "@UUID@",
-              "flow": ""
-            }
-          ],
-          "transport": {
-            "type": "ws",
-            "path": "@WS_PATH@",
-            "max_early_data": 2048,
-            "early_data_header_name": "Sec-WebSocket-Protocol"
-          },
-          "multiplex": {
-            "enabled": true,
-            "padding": false
-          }
-        }
-      ]
+      "transport": {
+        "type": "ws",
+        "path": "@WS_PATH@",
+        "max_early_data": 2048,
+        "early_data_header_name": "Sec-WebSocket-Protocol"
+      },
+      "multiplex": { "enabled": true, "padding": false }
     }
   ],
-  "outbounds": [
-    {
-      "type": "direct",
-      "tag": "direct",
-      "domain_strategy": "ipv4_only"
-    }
-  ]
+  ...
 }
