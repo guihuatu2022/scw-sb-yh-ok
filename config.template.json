@@ -15,27 +15,92 @@
   },
   "inbounds": [
     {
-      "type": "vless",
-      "tag": "vless-ws-in",
+      "type": "mixed",
+      "tag": "main-in",
       "listen": "0.0.0.0",
       "listen_port": @PORT@,
       "sniff": false,
-      "users": [
+      "handlers": [
         {
-          "uuid": "@UUID@",
-          "flow": ""
+          "comment": "Health check: GET / or GET /health (non-WebSocket)",
+          "type": "logical",
+          "mode": "and",
+          "rules": [
+            { "type": "http_method", "method": "GET" },
+            {
+              "type": "logical",
+              "mode": "or",
+              "rules": [
+                { "type": "http_path", "path": "/" },
+                { "type": "http_path", "path": "/health" }
+              ]
+            },
+            {
+              "type": "http_header",
+              "header": "Upgrade",
+              "invert": true,
+              "regexp": "(?i)websocket"
+            }
+          ],
+          "server": "health-http"
+        },
+        {
+          "comment": "VLESS+WS traffic",
+          "type": "logical",
+          "mode": "and",
+          "rules": [
+            { "type": "http_path", "path": "@WS_PATH@" }
+          ],
+          "server": "vless-ws"
         }
       ],
-      "transport": {
-        "type": "ws",
-        "path": "@WS_PATH@",
-        "max_early_data": 2048,
-        "early_data_header_name": "Sec-WebSocket-Protocol"
-      },
-      "multiplex": {
-        "enabled": true,
-        "padding": false
-      }
+      "servers": [
+        {
+          "type": "http",
+          "tag": "health-http",
+          "handlers": [
+            {
+              "type": "logical",
+              "mode": "and",
+              "rules": [
+                { "type": "http_method", "method": "GET" },
+                {
+                  "type": "logical",
+                  "mode": "or",
+                  "rules": [
+                    { "type": "http_path", "path": "/" },
+                    { "type": "http_path", "path": "/health" }
+                  ]
+                }
+              ],
+              "server": "direct"
+            }
+          ]
+        },
+        {
+          "type": "vless",
+          "tag": "vless-ws",
+          "listen": "127.0.0.1",
+          "listen_port": 0,
+          "sniff": false,
+          "users": [
+            {
+              "uuid": "@UUID@",
+              "flow": ""
+            }
+          ],
+          "transport": {
+            "type": "ws",
+            "path": "@WS_PATH@",
+            "max_early_data": 2048,
+            "early_data_header_name": "Sec-WebSocket-Protocol"
+          },
+          "multiplex": {
+            "enabled": true,
+            "padding": false
+          }
+        }
+      ]
     }
   ],
   "outbounds": [
