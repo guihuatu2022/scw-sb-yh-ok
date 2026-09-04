@@ -1,13 +1,31 @@
+@@ -0,0 +1,48 @@
 {
+  "log": {
+    "level": "@LOG_LEVEL@",
+    "timestamp": false
+  },
+  "dns": {
+    "servers": [
+      {
+        "tag": "resolver",
+        "address": "https://1.1.1.1/dns-query",
+        "strategy": "ipv4_only"
+      }
+    ],
+    "strategy": "ipv4_only"
+  },
   "inbounds": [
     {
       "type": "vless",
       "tag": "vless-ws-in",
       "listen": "0.0.0.0",
-      "listen_port": 8080,
+      "listen_port": @PORT@,
       "sniff": false,
       "users": [
-        { "uuid": "@UUID@", "flow": "" }
+        {
+          "uuid": "@UUID@",
+          "flow": ""
+        }
       ],
       "transport": {
         "type": "ws",
@@ -15,8 +33,17 @@
         "max_early_data": 2048,
         "early_data_header_name": "Sec-WebSocket-Protocol"
       },
-      "multiplex": { "enabled": true, "padding": false }
+      "multiplex": {
+        "enabled": true,
+        "padding": true
+      }
     }
   ],
-  ...
+  "outbounds": [
+    {
+      "type": "direct",
+      "tag": "direct",
+      "domain_strategy": "ipv4_only"
+    }
+  ]
 }
